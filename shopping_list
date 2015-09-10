@@ -1,0 +1,43 @@
+shopping_list = []
+
+def show_help():
+  print("What would you like to get?")
+  print("Enter 'DONE' when finished. For help enter 'HELP'.") 
+  print("To remove an item enter 'DELETE' and type in the item you would like to remove.")
+  
+def add_to_list(item):
+  shopping_list.append(item)
+  print("You have added {}! Your list now contains {} items.".format(item, len(shopping_list)))
+  
+def show_list():
+  print("Here is your list.")
+  for item in shopping_list:
+    print(item)
+    
+def delete_item():
+  print("Type in the item you would like to remove.")
+  old_item = input('> ')
+  shopping_list.remove(old_item)
+  print("Poof! {} has been removed from the list. There are now {} item(s)".format(old_item, len(shopping_list)))
+
+show_help()
+
+while True:
+  new_item = input('> ')
+  if new_item == "DONE":
+    break
+  elif new_item == "DELETE":
+    delete_item()
+    continue
+  elif new_item == "LIST":
+    show_list()
+    continue  
+  elif new_item == "HELP":
+    show_help()
+    continue  
+    
+  add_to_list(new_item)
+  continue
+  
+  
+show_list()
